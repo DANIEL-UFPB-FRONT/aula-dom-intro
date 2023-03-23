@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Olá Mundo!</h1>
+
+    <div id="container" class="container-class">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+    </div>
+
+    <script>
+        const divContainer = document.getElementById("container")
+        console.log(divContainer)
+        const itens = document.getElementsByTagName("li")
+        console.log(itens)
+        for (const item of itens) {
+            console.log(item.textContent)
+            item.setAttribute("style", "color: rgba(0,0,0,0.5); list-style-type: square")
+        }
+    </script>
+</body>
+</html>

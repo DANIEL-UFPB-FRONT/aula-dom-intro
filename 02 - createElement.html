@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <div id="elemento-inicial">Olá Dom!</div>
+    </div>
+
+    <script>
+        const newH1 = document.createElement("h1")
+        newH1.textContent = "Olá Mundo!"
+        newH1.style.color = "#000"
+        newH1.style.textAlign = "center"
+
+        const divElemento = document.getElementById("elemento-inicial")
+        const divContainer = document.getElementById("container")
+        // divContainer.insertBefore(newH1, divElemento)
+        // divContainer.append(newH1)
+    </script>
+</body>
+</html>

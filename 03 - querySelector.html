@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1 class="titulos" style="text-align: center;">Olá Mundo</h1>
+        <h2 style="text-align: center;">Introdução ao DOM</h2>
+        <h3 class="titulos" style="text-align: center;">Bem vindos!</h3>
+        <div id="elemento-inicial"></div>
+    </div>
+
+    <script>
+        const tag = document.querySelector("h2")
+        console.log(tag)
+        const id = document.querySelector("#container")
+        console.log(id)
+        const class_ = document.querySelector(".titulos")
+        console.log(class_)
+
+        // querySelector ALL
+        const classes = document.querySelectorAll(".titulos")
+        console.log(classes)
+    </script>
+</body>
+</html>

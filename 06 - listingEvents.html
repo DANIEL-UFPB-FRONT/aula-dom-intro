@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+ <h2 id="buttom">Clicke me</h2>
+<script>
+    // Primeira forma de registrar evento
+    function clickme(){
+        document.getElementById("buttom").innerHTML = "Clicked!"
+    }
+    document.getElementById("buttom").addEventListener("click",clickme)
+
+
+    //Segunda forma de registrar o evento - codificando direto a função target na chamada da função de registro
+    document.getElementById("buttom").addEventListener("mouseout",() => {
+        document.getElementById("buttom").innerHTML = "Click me!"
+    })
+
+    setTimeout(() => {
+        document.getElementById("buttom").removeEventListener("click",clickme)
+        alert("Evento removido!")
+    },"10000")
+
+</script>
+</body>
+
+</html>

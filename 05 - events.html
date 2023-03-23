@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+   <h1 onclick="this.innerHTML = 'Hey World!👋'">Hello World</h1>
+   <h1 style="width: 10%;" onmouseover="this.innerHTML = 'Hey!'" onmouseout="this.innerHTML = 'Goodbye 👋'">Move on me!</h1>
+    <h2 id="buttom">Clicke me</h2>
+    <script>
+        document.getElementById("buttom").onclick = clickme
+        document.getElementById("buttom").onmouseout = clickmeout
+        function clickme(){
+            document.getElementById("buttom").innerHTML = "Clicked!"
+        }
+        
+        function clickmeout(){
+            document.getElementById("buttom").innerHTML = "Click me!"
+        }
+    </script>
+</body>
+
+</html>
