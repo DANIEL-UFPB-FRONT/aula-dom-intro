@@ -33,25 +33,44 @@ const viewPokemonData = async (event) => {
 const buildPokemonRootContainer = async (types) =>{
 
     //Root container
-    const pokemonRootContainer = document.createElement('div')
-    pokemonRootContainer.setAttribute("id", "pokemonRootContainer")
-    const cabecalhoPokemon = document.createElement('h2')
-    cabecalhoPokemon.id = 'selectpokemon'
-    cabecalhoPokemon.textContent = 'Choose type'
-    pokemonRootContainer.append(cabecalhoPokemon)
-    document.body.append(pokemonRootContainer)
 
 
-    //Selection list
-    const selectPokemon = document.createElement('select');
-    selectPokemon.id = 'selectPokemonList'
-    pokemonRootContainer.append(selectPokemon)
+    if(!document.getElementById('pokemonRootContainer')){
+
+        const pokemonRootContainer = document.createElement('div')
+        pokemonRootContainer.setAttribute("id", "pokemonRootContainer")
+        const cabecalhoPokemon = document.createElement('h2')
+        cabecalhoPokemon.id = 'selectpokemon'
+        cabecalhoPokemon.textContent = 'Choose type'
+        pokemonRootContainer.append(cabecalhoPokemon)
+        document.body.append(pokemonRootContainer)
+    
+    
+        //Selection list
+        const selectPokemon = document.createElement('select');
+        selectPokemon.id = 'selectPokemonList'
+        pokemonRootContainer.append(selectPokemon)
+        // selectPokemon.append(pokemonDefault)
+
+
+        
+        //Info buttom
+        const searchButtom = document.createElement('input')
+        searchButtom.type = 'submit'
+        searchButtom.value = 'See info'
+        searchButtom.id = 'seeInfo'
+        pokemonRootContainer.append(searchButtom)
+        document.getElementById('seeInfo').addEventListener('click', viewPokemonData)
+    }
+
+    const pokemonList = document.getElementById('selectPokemonList')
+    // Clear list and populate again
+    pokemonList.textContent = ''
     const pokemonDefault = document.createElement('option')
     pokemonDefault.id = 'pokemonDefault'
     pokemonDefault.value = 'default'
     pokemonDefault.innerText = 'Loading pokemons...'
-    selectPokemon.append(pokemonDefault)
-
+    pokemonList.append(pokemonDefault)
 
     //Populate list
     pokemonData = await fetch(`${types}`)
@@ -60,20 +79,10 @@ const buildPokemonRootContainer = async (types) =>{
         const pokemonOption = document.createElement('option')
         pokemonOption.innerText = pokemonItem.pokemon.name
         pokemonOption.value = pokemonItem.pokemon.url
-        selectPokemon.append(pokemonOption)
+        pokemonList.append(pokemonOption)
     });
     pokemonDefault.innerText = 'Choose a pokemon...'
 
-
-    //Info buttom
-    const searchButtom = document.createElement('input')
-    searchButtom.type = 'submit'
-    searchButtom.value = 'See info'
-    searchButtom.id = 'seeInfo'
-    pokemonRootContainer.append(searchButtom)
-
-
-    document.getElementById('seeInfo').addEventListener('click', viewPokemonData)
 }
 
 const destroyPokemonRootContainer = () =>{
