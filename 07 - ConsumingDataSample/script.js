@@ -95,19 +95,19 @@ const destroyPokemonRootContainer = () =>{
 }
 
 
-async function loadSpecies() {
-    const speciesData = await fetch(API_URL)
-    const species = await speciesData.json()
-    const selectEstados = document.getElementById('select-species')
-    species.results.forEach(item => {
-        const speciesOption = document.createElement('option')
-        speciesOption.innerText = item.name
-        speciesOption.value = item.url
-        selectEstados.append(speciesOption)
+async function loadTypes() {
+    const typesData = await fetch(API_URL)
+    const types = await typesData.json()
+    const selectTypes = document.getElementById('select-types')
+    types.results.forEach(item => {
+        const typesOptions = document.createElement('option')
+        typesOptions.innerText = item.name
+        typesOptions.value = item.url
+        selectTypes.append(typesOptions)
     });
 
-    const estadoDefault = document.getElementById('default-species')
-    estadoDefault.innerText = 'Loading species...'
+    const typeDefault = document.getElementById('default-types')
+    typeDefault.innerText = 'Loading Types...'
     
 }
 
@@ -118,10 +118,10 @@ async function addPokemonList(types) {
 }
 
 async function selectType() {
-    const selectedSpecies = document.getElementById("select-species").value;
-    state.pokemonRootContainerEnable = !(selectedSpecies === "default")
-    addPokemonList(selectedSpecies)
+    const selectedTypes = document.getElementById("select-types").value;
+    state.pokemonRootContainerEnable = !(selectedTypes === "default")
+    addPokemonList(selectedTypes)
 }
 
-window.addEventListener('load', loadSpecies)
-document.getElementById('select-species').addEventListener('change', selectType)
+window.addEventListener('load', loadTypes)
+document.getElementById('select-types').addEventListener('change', selectType)
